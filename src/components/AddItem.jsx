@@ -1,13 +1,18 @@
-
-export default function AddItem() {
+export default function AddItem({ addItems, item, setNewItem }) {
   return (
     <>
-      <form>
-        <input type="text" />
+      <form onSubmit={addItems} className="d-flex flex-column">
+        <input
+          type="text"
+          value={item}
+          onChange={(event) => {
+            setNewItem(event.target.value);
+          }}
+        />
+        <button type="submit" className="btn btn-primary mt-3">
+          Aggiungi
+        </button>
       </form>
-      <button type="submite" className="btn btn-primary mt-3">
-        Aggiungi
-      </button>
     </>
   );
 }
